@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Paper, TextField, Fab } from '@material-ui/core'
+import { Zoom, TextField, Fab, TextareaAutosize } from '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
 
@@ -43,21 +43,22 @@ export const AddNote = (props) => {
   return (
     <div className='container-create-note'>
 
-      <Paper elevation={3} className='create-note'>
-        <h3>Add a new note</h3>
+      <form className='create-note'>
         <div>
-          <TextField required value={note.title} onChange={handleChange} name='title' placeholder='Add a title ...' label='Title' />
+          <TextareaAutosize required value={note.title} onChange={handleChange} name='title' placeholder='Title ...' />
         </div>
         <div>
-          <TextField required multiline value={note.content} onChange={handleChange} name='content' placeholder='Add content ...' label='Content' />
+          <TextareaAutosize required value={note.content} onChange={handleChange} name='content' placeholder='Take a note...' />
         </div>
         <div className='add-btn-container'>
-          <Fab className='add-btn' aria-label="add" onClick={submitNote}>
-            <AddCircleOutlineOutlinedIcon />
-          </Fab>
+          <Zoom in={true}>
+            <Fab className='add-btn' aria-label="add" onClick={submitNote}>
+              <AddCircleOutlineOutlinedIcon />
+            </Fab>
+          </Zoom>
         </div>
+      </form>
 
-      </ Paper >
     </div >
 
   )
