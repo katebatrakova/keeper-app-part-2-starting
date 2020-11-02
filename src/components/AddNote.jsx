@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+import { Paper, TextField, Fab } from '@material-ui/core'
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+
+
 
 export const AddNote = (props) => {
   //creating constant that keeps track of the note title and content
@@ -37,17 +41,24 @@ export const AddNote = (props) => {
 
 
   return (
+    <div className='container-create-note'>
 
-    <div className='add-note'>
-      <form>
+      <Paper elevation={3} className='create-note'>
+        <h3>Add a new note</h3>
         <div>
-          <input value={note.title} onChange={handleChange} name='title' placeholder='Add a title ...'></input>
+          <TextField required value={note.title} onChange={handleChange} name='title' placeholder='Add a title ...' label='Title' />
         </div>
         <div>
-          <input value={note.content} onChange={handleChange} name='content' placeholder='Add content ...'></input>
+          <TextField required multiline value={note.content} onChange={handleChange} name='content' placeholder='Add content ...' label='Content' />
         </div>
-        <button onClick={submitNote}>Add a new note</button>
-      </form>
-    </div>
+        <div className='add-btn-container'>
+          <Fab className='add-btn' aria-label="add" onClick={submitNote}>
+            <AddCircleOutlineOutlinedIcon />
+          </Fab>
+        </div>
+
+      </ Paper >
+    </div >
+
   )
 }

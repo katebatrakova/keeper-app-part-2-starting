@@ -23,6 +23,9 @@ header h1 {
   font-family: "McLaren", cursive;
   font-weight: 200;
 }
+h3{
+  padding: 3%;
+}
 
 footer {
   position: absolute;
@@ -40,12 +43,17 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  /* width: 240px; */
+  width: fit-content;
   margin: 16px;
   float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .note h1 {
-  font-size: 1.1em;
+  font-size: 1.5em;
+  font-weight: 400;
   margin-bottom: 6px;
 }
 .note p {
@@ -55,13 +63,36 @@ footer p {
   word-wrap: break-word;
 }
 
-.add-note{
+.container-create-note{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.create-note{
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  width: 50%;
-  margin: 16px;
+  place-items: center;
+  width: 40%;
+}
+.add-btn-container{
+  padding: 4%;
+}
+/* Add button  */
+.MuiFab-root.add-btn{
+  background-color:  #f5ba13;
+}
+
+/* plus icon  */
+.add-btn .MuiSvgIcon-root{
+  font-size: 5rem;
+  color: #eee;
+}
+.add-btn .MuiSvgIcon-root:hover{
+  color: #f5ba13;
+}
+
+#dlt-btn:hover{
+  color: red;
+  cursor: pointer;
 }

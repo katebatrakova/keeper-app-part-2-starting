@@ -1,4 +1,7 @@
 import React from "react";
+import { Paper, TextField, Fab } from '@material-ui/core'
+
+import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
 function Note(props) {
 
@@ -8,11 +11,16 @@ function Note(props) {
   }
 
   return (
-    <div className="note">
-      <h1>{props.title}</h1>
-      <p>{props.content}</p>
-      <button onClick={handleDeleteClick}>DELETE</button>
-    </div>
+    <Paper className="note">
+      <div>
+        <h1>{props.title}</h1>
+      </div>
+      <div>
+        <p>{props.content}</p>
+      </div>
+      <DeleteForeverOutlinedIcon id='dlt-btn' onClick={handleDeleteClick} />
+
+    </Paper>
   );
 }
 
