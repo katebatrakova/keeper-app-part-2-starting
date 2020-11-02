@@ -5,12 +5,14 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 
 
 export const AddNote = (props) => {
+  const [isExpanded, setIsExpanded] = useState(false)
   //creating constant that keeps track of the note title and content
   const [note, setNote] = useState(
     {
       title: '',
       content: ''
     })
+
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -39,19 +41,26 @@ export const AddNote = (props) => {
     event.preventDefault()
   }
 
+  const expand = () => {
+    setIsExpanded(true)
+  }
+
 
   return (
     <div className='container-create-note'>
 
       <form className='create-note'>
+        {isExpanded ?
+          <div>
+            <TextareaAutosize required value={note.title} onChange={handleChange} name='title' placeholder='Title ...' />
+          </div>
+          : null}
         <div>
-          <TextareaAutosize required value={note.title} onChange={handleChange} name='title' placeholder='Title ...' />
+          <TextareaAutosize required value={note.content} onChange={handleChange} onClick={expand} name='content' placeholder='Take a note...' />
         </div>
-        <div>
-          <TextareaAutosize required value={note.content} onChange={handleChange} name='content' placeholder='Take a note...' />
-        </div>
+
         <div className='add-btn-container'>
-          <Zoom in={true}>
+          <Zoom in={isExpanded}>
             <Fab className='add-btn' aria-label="add" onClick={submitNote}>
               <AddCircleOutlineOutlinedIcon />
             </Fab>
